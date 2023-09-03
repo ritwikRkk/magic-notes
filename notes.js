@@ -75,14 +75,18 @@ search.addEventListener('input', function(){
     // console.log('input event fired', inputval);
     let noteCards= document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function (element) {
-        let cardTxt=element.getElementsByTagName('p')[0].innerText;
-        if(cardTxt.includes(inputval)){
+        let cardTitle=element.getElementsByTagName('h5')[0].innerText;
+        let cardNotes=element.getElementsByTagName('p')[0].innerText;
+        if(cardTitle.includes(inputval)){
+            element.style.display = "block";
+        }
+        else if(cardNotes.includes(inputval)){
             element.style.display = "block";
         }
         else{
             element.style.display = "none";
         }
-        // console.log(cardTxt);
+        // console.log(cardNotes);
     });
 
 });
